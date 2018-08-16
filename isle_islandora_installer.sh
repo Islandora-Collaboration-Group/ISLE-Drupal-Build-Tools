@@ -49,7 +49,7 @@ drush site-install -y --account-name=isle --account-pass=isle --account-mail=adm
 echo "Drush vset of Drupal Site configurations"
 drush -u 1 -y vset islandora_base_url "fedora:8080/fedora"
 drush -u 1 -y vset islandora_solr_url "solr:8080/solr"
-drush -u 1 -y vset imagemagick_convert "/usr/bin/convert"
+drush -u 1 -y vset imagemagick_convert "/usr/local/bin/convert"
 drush -u 1 -y vset image_toolkit "imagemagick"
 drush -u 1 -y vset islandora_ocr_tesseract "/usr/bin/tesseract"
 drush -u 1 -y vset islandora_checksum_checksum_type "SHA-1"
