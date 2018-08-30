@@ -1,1 +1,5 @@
-# isle_drupal_build_tools
+# ISLE Drupal Build Tools
+
+Installs Islandora 7.x-1.10 modules and a few deprecated/labs modules.
+
+Special thanks to @exsilica, @McFateM and Born Digital for the original concept.

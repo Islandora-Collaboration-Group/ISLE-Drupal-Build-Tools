@@ -12,7 +12,7 @@ api = 2
 ; Defaults that apply to all modules.
 defaults[projects][type] = "module"
 defaults[projects][download][type] = "git"
-defaults[projects][download][branch]  = "7.x"
+defaults[projects][download][branch]  = "7.x-1.10"
 defaults[projects][download][overwrite] = TRUE
 defaults[projects][subdir] = islandora
 
@@ -26,7 +26,9 @@ projects[islandora_checksum_checker][download][url] = "https://github.com/Island
 projects[islandora_fits][download][url] = "https://github.com/Islandora/islandora_fits.git"
 projects[islandora_form_fieldpanel][download][url] = "https://github.com/Islandora/islandora_form_fieldpanel.git"
 projects[islandora_altmetrics][download][url] = "https://github.com/Islandora/islandora_altmetrics"
+  projects[islandora_altmetrics][download][branch] = "7.x"
 projects[islandora_image_annotation][download][url] = "https://github.com/Islandora/islandora_image_annotation.git"
+  projects[islandora_image_annotation][download][branch] = "7.x"
 projects[islandora_importer][download][url] = "https://github.com/Islandora/islandora_importer.git"
 projects[islandora_internet_archive_bookreader][download][url] = "https://github.com/Islandora/islandora_internet_archive_bookreader.git"
 projects[islandora_marcxml][download][url] = "https://github.com/Islandora/islandora_marcxml.git"
@@ -57,6 +59,7 @@ projects[islandora_solution_pack_pdf][download][url] = "https://github.com/Islan
 projects[islandora_solution_pack_video][download][url] = "https://github.com/Islandora/islandora_solution_pack_video.git"
 projects[islandora_solution_pack_web_archive][download][url] = "https://github.com/Islandora/islandora_solution_pack_web_archive.git"
 projects[islandora_sync][download][url] = "https://github.com/Islandora/islandora_sync.git"
+  projects[islandora_sync][download][branch] = "7.x"
 projects[islandora_usage_stats][download][url] = "https://github.com/islandora/islandora_usage_stats"
 projects[islandora_xacml_editor][download][url] = "https://github.com/Islandora/islandora_xacml_editor.git"
 projects[islandora_xml_forms][download][url] = "https://github.com/Islandora/islandora_xml_forms.git"
@@ -65,7 +68,13 @@ projects[objective_forms][download][url] = "https://github.com/Islandora/objecti
 projects[islandora_newspaper_batch][download][url] = "https://github.com/Islandora/islandora_newspaper_batch.git"
 projects[php_lib][download][url] = "https://github.com/Islandora/php_lib.git"
 projects[islandora_webform][download][url] = "https://github.com/commonmedia/islandora_webform.git"
+  projects[islandora_webform][download][branch] = "7.x"
 projects[islandora_videojs][download][url] = "https://github.com/Islandora/islandora_videojs.git"
+
+; projects[islandora_multi_importer][download][url] = "https://github.com/mnylc/islandora_multi_importer.git"
+;   projects[islandora_multi_importer][download][branch] = "master"
+; projects[islandora_solution_pack_oralhistories][download][url] = "https://github.com/Islandora-Labs/islandora_solution_pack_oralhistories.git"
+;   projects[islandora_solution_pack_oralhistories][download][branch] = "7.x"
 
 ; Libraries
 

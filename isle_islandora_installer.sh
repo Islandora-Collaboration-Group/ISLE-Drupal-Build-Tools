@@ -2,6 +2,10 @@
 
 # 
 # @TODO Discuss with M.McFate on build_tools updates from builds.
+# Special thanks to Mark McFate for the improved versioning of the build tools.
+# @see https://github.com/DigitalGrinnell/ISLE/tree/clean-traefik-master/build/apache/isle_drupal_build_tools
+# Composer will be next, but the files commited here are a direct lift of Mark's build tools from the Alpha.
+# Thank you, @McFateM! 
 #
 
 echo "Using Drush makefile to create sample Drupal site within /tmp/drupal_install"
@@ -20,23 +24,23 @@ echo "SetEnvIf X-Forwarded-Proto https HTTPS=on" | tee -a /tmp/drupal_install/.h
 echo "Copying Islandora Installation..."
 rsync -r --delete --chown=islandora:www-data /tmp/drupal_install/ /var/www/html
 
-echo "Fix Openseadragon & Change directory to /var/www/html/sites/all/libraries"
-cd /var/www/html/sites/all/libraries || exit
+# echo "Fix Openseadragon & Change directory to /var/www/html/sites/all/libraries"
+# cd /var/www/html/sites/all/libraries || exit
 
-echo "Delete current broken openseadragon library"
-rm -rf /var/www/html/sites/all/libraries/openseadragon
+# echo "Delete current broken openseadragon library"
+# rm -rf /var/www/html/sites/all/libraries/openseadragon
 
-echo "Download Openseadragon Library 2.3.1.zip"
-wget https://github.com/openseadragon/openseadragon/releases/download/v2.3.1/openseadragon-bin-2.3.1.zip
+# echo "Download Openseadragon Library 2.3.1.zip"
+# wget https://github.com/openseadragon/openseadragon/releases/download/v2.3.1/openseadragon-bin-2.3.1.zip
 
-echo "Unzip Openseadragon Library"
-unzip /var/www/html/sites/all/libraries/openseadragon-bin-2.3.1.zip
+# echo "Unzip Openseadragon Library"
+# unzip /var/www/html/sites/all/libraries/openseadragon-bin-2.3.1.zip
 
-echo "mv openseadragon-bin-2.3.1 openseadragon"
-mv /var/www/html/sites/all/libraries/openseadragon-bin-2.3.1 /var/www/html/sites/all/libraries/openseadragon
+# echo "mv openseadragon-bin-2.3.1 openseadragon"
+# mv /var/www/html/sites/all/libraries/openseadragon-bin-2.3.1 /var/www/html/sites/all/libraries/openseadragon
 
-echo "Delete Openseadragon zipfile"
-rm /var/www/html/sites/all/libraries/openseadragon-bin-2.3.1.zip
+# echo "Delete Openseadragon zipfile"
+# rm /var/www/html/sites/all/libraries/openseadragon-bin-2.3.1.zip
 
 echo "Installing all Islandora modules"
 cd /var/www/html/sites/all/modules || exit
