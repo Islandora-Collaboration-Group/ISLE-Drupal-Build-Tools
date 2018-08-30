@@ -12,7 +12,7 @@ api = 2
 ; Defaults that apply to all modules.
 defaults[projects][type] = "module"
 defaults[projects][download][type] = "git"
-defaults[projects][download][branch]  = "7.x-1.10"
+defaults[projects][download][branch]  = "7.x-1.11"
 defaults[projects][download][overwrite] = TRUE
 defaults[projects][subdir] = islandora
 
