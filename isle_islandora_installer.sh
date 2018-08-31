@@ -80,10 +80,11 @@ drush -u 1 -y vset --format=json islandora_newspaper_page_viewers '{"name":{"non
 drush -u 1 -y vset islandora_openseadragon_iiif_identifier '[islandora_openseadragon:pid]~[islandora_openseadragon:dsid]~[islandora_openseadragon:token]'
 drush -u 1 -y vset islandora_openseadragon_iiif_token_header '0'
 drush -u 1 -y vset islandora_openseadragon_iiif_url 'iiif/2'
+drush -u 1 -y vset islandora_openseadragon_tilesource 'iiif'
 drush -u 1 -y vset islandora_internet_archive_bookreader_iiif_identifier '[islandora_iareader:pid]~[islandora_iareader:dsid]~[islandora_iareader:token]'
 drush -u 1 -y vset islandora_internet_archive_bookreader_iiif_token_header '0'
 drush -u 1 -y vset islandora_internet_archive_bookreader_iiif_url 'iiif/2'
-
+drush -u 1 -y vset islandora_internet_archive_bookreader_pagesource 'iiif'
 
 ## Enable all modules
 echo "Enabling all Drupal modules, Islandora modules first"
