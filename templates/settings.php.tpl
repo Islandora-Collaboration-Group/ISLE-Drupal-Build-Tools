@@ -632,4 +632,6 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
  */
 # $conf['theme_debug'] = TRUE;
 
+# Please note your drupal instance is behind a proxy and does have free access
+# to the internet. 
 $conf['drupal_http_request_fails'] = FALSE;

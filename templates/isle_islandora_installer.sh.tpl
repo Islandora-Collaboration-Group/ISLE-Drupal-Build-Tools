@@ -165,7 +165,7 @@ echo "Running fix-permissions script"
 
 ## Cron job setup
 echo "Configuring cron job to run every 3 hours"
-echo "0 0,3,6,9,12,15,18,21 * * * su -s /bin/bash www-data -c 'drush cron -u 1 --root=/var/www/html --uri=${BASE_DOMAIN} --quiet'" >> crondrupal
+echo "0 */3 * * * su -s /bin/bash www-data -c 'drush cron -u 1 --root=/var/www/html --uri=${BASE_DOMAIN} --quiet'" >> crondrupal
 crontab crondrupal
 rm crondrupal
 
