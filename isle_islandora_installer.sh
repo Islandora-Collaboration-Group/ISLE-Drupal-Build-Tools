@@ -173,8 +173,4 @@ rm crondrupal
 echo 'Clearing Drupal Caches.'
 su -s /bin/bash www-data -c 'drush cc all'
 
-## Running drush cron
-echo 'Running drupal cron'
-su -s /bin/bash www-data -c "drush cron --root=/var/www/html --uri=${BASE_DOMAIN}"
-
 exit
