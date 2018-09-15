@@ -253,6 +253,8 @@ $databases['default']['default'] = array(
   'password' => '{{getv "/drupal/db/pass"}}',
   'host' => 'mysql',
   'prefix' => '',
+  'charset' => 'utf8mb4',
+  'collation' => 'utf8mb4_general_ci',
 );
 
 /**
@@ -629,3 +631,5 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
  * Remove the leading hash sign to enable.
  */
 # $conf['theme_debug'] = TRUE;
+
+$conf['drupal_http_request_fails'] = FALSE;

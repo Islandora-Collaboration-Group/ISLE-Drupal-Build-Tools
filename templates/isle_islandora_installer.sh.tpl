@@ -24,24 +24,6 @@ echo "SetEnvIf X-Forwarded-Proto https HTTPS=on" | tee -a /tmp/drupal_install/.h
 echo "Copying Islandora Installation..."
 rsync -r --delete --chown=islandora:www-data /tmp/drupal_install/ /var/www/html
 
-# echo "Fix Openseadragon & Change directory to /var/www/html/sites/all/libraries"
-# cd /var/www/html/sites/all/libraries || exit
-
-# echo "Delete current broken openseadragon library"
-# rm -rf /var/www/html/sites/all/libraries/openseadragon
-
-# echo "Download Openseadragon Library 2.3.1.zip"
-# wget https://github.com/openseadragon/openseadragon/releases/download/v2.3.1/openseadragon-bin-2.3.1.zip
-
-# echo "Unzip Openseadragon Library"
-# unzip /var/www/html/sites/all/libraries/openseadragon-bin-2.3.1.zip
-
-# echo "mv openseadragon-bin-2.3.1 openseadragon"
-# mv /var/www/html/sites/all/libraries/openseadragon-bin-2.3.1 /var/www/html/sites/all/libraries/openseadragon
-
-# echo "Delete Openseadragon zipfile"
-# rm /var/www/html/sites/all/libraries/openseadragon-bin-2.3.1.zip
-
 echo "Installing all Islandora modules"
 cd /var/www/html/sites/all/modules || exit
 
@@ -174,18 +156,21 @@ drush @sites -u 1 -y vset islandora_video_mp4_audio_codec "aac"
 
 echo "Enable module script finished!"
 
+## Enable repo access to anonymous users.
 drush rap 'anonymous user' 'view fedora repository objects'
-
-## Cron job setup
-#echo "Cron job setup every 3 hours"
-#crontab -l > crondrupal
-#sudo crontab -u islandora -e
-#echo "0 0,3,6,9,12,15,18,21 * * * drush cron -u 1 --root=/var/www/html —uri=http:/isle.localdomain" >> crondrupal
-#crontab crondrupal
-#rm crondrupal
 
 # Fix site directory permissions
 echo "Running fix-permissions script"
 /bin/bash /utility-scripts/isle_drupal_build_tools/drupal/fix-permissions.sh --drupal_path=/var/www/html --drupal_user=islandora --httpd_group=www-data
+
+## Cron job setup
+echo "Configuring cron job to run every 3 hours"
+echo "0 0,3,6,9,12,15,18,21 * * * su -s /bin/bash www-data -c 'drush cron -u 1 --root=/var/www/html --uri=${BASE_DOMAIN} --quiet'" >> crondrupal
+crontab crondrupal
+rm crondrupal
+
+## Clearing caches
+echo 'Clearing Drupal Caches.'
+su -s /bin/bash www-data -c 'drush -u 1 cc all'
 
 exit
