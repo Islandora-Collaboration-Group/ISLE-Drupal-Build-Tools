@@ -43,21 +43,22 @@ drush -u 1 -y vset islandora_paged_content_gs "/usr/bin/gs"
 echo "Re-running the islandora_video_mp4_audio_codec vset!"
 drush -u 1 -y vset islandora_video_mp4_audio_codec "aac"
 
-## ALLOW ANONYMOUSE USERS TO VIEW YOUR COLLECTION?
+## Enable repo access to anonymous users.
 drush rap 'anonymous user' 'view fedora repository objects'
-
-### Cron job setup
-#echo "Cron job setup every 3 hours"
-#crontab -l > crondrupal
-#sudo crontab -u islandora -e
-
-#echo "0 0,3,6,9,12,15,18,21 * * * /usr/local/bin/drush cron -u 1 --root=/var/www/html —uri=https:/isle-dev.williams.edu" >> crondrupal
-#crontab crondrupal
-#rm crondrupal
 
 # Fix site directory permissions
 echo "Running fix-permissions script"
 /bin/bash /utility-scripts/isle_drupal_build_tools/drupal/fix-permissions.sh --drupal_path=/var/www/html --drupal_user=islandora --httpd_group=www-data
+
+## Cron job setup every three hours
+echo "Configuring cron job to run every 3 hours"
+echo "0 */3 * * * su -s /bin/bash www-data -c 'drush cron --root=/var/www/html --uri=${BASE_DOMAIN} --quiet'" >> crondrupal
+crontab crondrupal
+rm crondrupal
+
+## Run cron first time, update update-status (rf), clear caches.
+echo 'Running Drupal Cron first time and clearing Drupal Caches.'
+su -s /bin/bash www-data -c 'drush cron && drush rf && drush cc all'
 
 echo "Drush script finished! ...exiting"
 exit
