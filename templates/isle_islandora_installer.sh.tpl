@@ -111,7 +111,7 @@ drush -y -u 1 en islandora_basic_image
 drush -y -u 1 en islandora_bibliography
 drush -y -u 1 en islandora_compound_object
 drush -y -u 1 en islandora_google_scholar
-drush -y -u 1 en islandora_scholar_embargo
+drush -y -u 1 en islandora_scholar
 drush -y -u 1 en islandora_solr_config
 drush -y -u 1 en citation_exporter
 drush -y -u 1 en doi_importer
@@ -153,6 +153,14 @@ drush -u 1 -y vset islandora_paged_content_gs "/usr/bin/gs"
 
 echo "Re-running the islandora_video_mp4_audio_codec vset!"
 drush @sites -u 1 -y vset islandora_video_mp4_audio_codec "aac"
+
+echo "Installing new citeproc v2 library for Islandora scholar"
+cd /var/www/html/sites/all/modules/islandora/islandora_scholar/modules/citeproc || exit
+
+composer install
+
+echo "Back to /var/www/html/sites/all/modules"
+cd /var/www/html/sites/all/modules || exit
 
 echo "Enable module script finished!"
 
