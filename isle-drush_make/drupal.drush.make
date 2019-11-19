@@ -24,7 +24,7 @@ projects[imagemagick][subdir] = "contrib"
 projects[libraries][subdir] = "contrib"
 projects[link][subdir] = "contrib"
 ; 18-Nov-2019 - nodequeue is unstable/unsupported. MAM removing it to fix build/install errors.
-; projects[nodequeue][subdir] = "contrib"
+projects[nodequeue][subdir] = "contrib"
 projects[rules][subdir] = "contrib"
 projects[stage_file_proxy][subdir] = "contrib"
 projects[strongarm][subdir] = "contrib"
