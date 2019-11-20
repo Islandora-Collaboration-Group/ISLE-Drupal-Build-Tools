@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# 
+#
 # @TODO Discuss with M.McFate on build_tools updates from builds.
 # Special thanks to Mark McFate for the improved versioning of the build tools.
 # @see https://github.com/DigitalGrinnell/ISLE/tree/clean-traefik-master/build/apache/isle_drupal_build_tools
 # Composer will be next, but the files commited here are a direct lift of Mark's build tools from the Alpha.
-# Thank you, @McFateM! 
+# Thank you, @McFateM!
 #
 
 echo "Using Drush makefile to create sample Drupal site within /tmp/drupal_install"
@@ -110,7 +110,6 @@ drush -y -u 1 en zip_importer
 drush -y -u 1 en islandora_basic_image
 drush -y -u 1 en islandora_bibliography
 drush -y -u 1 en islandora_compound_object
-drush -y -u 1 en islandora_google_scholar
 drush -y -u 1 en islandora_scholar
 drush -y -u 1 en islandora_solr_config
 drush -y -u 1 en citation_exporter
