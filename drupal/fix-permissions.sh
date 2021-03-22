@@ -12,6 +12,7 @@ you need to provide the following arguments:
 
 Usage: (sudo) bash ${0##*/} --drupal_path=PATH --drupal_user=USER --httpd_group=GROUP
 Example: (sudo) bash ${0##*/} --drupal_path=/usr/local/apache2/htdocs --drupal_user=john --httpd_group=www-data
+Example for Islandora users: ./fix-permissions/sh --drupal_path=/var/www/html --drupal_user=islandora --httpd_group=www-data
 HELP
 exit 0
 }
