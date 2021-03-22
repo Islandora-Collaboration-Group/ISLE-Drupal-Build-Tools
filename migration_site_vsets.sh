@@ -1,5 +1,16 @@
 #!/bin/bash
 
+## Important! When IMI is present we MUST run Composer to install it BEFORE Drush will function properly!
+if [ -d "/var/www/html/sites/all/modules/islandora/islandora_multi_importer" ] ; then
+    echo "Islandora Multi-Importer directory found, installing..."
+    cd /var/www/html/sites/all/modules/islandora/islandora_multi_importer || exit
+    composer install
+else
+  [ ! -d "/var/www/html/sites/all/modules/islandora/islandora_multi_importer" ]
+  	echo 'Islandora Multi-importer not found, moving on...'
+    cd /var/www/html/ || exit
+fi
+
 ## Drush vset of all settings
 echo "Drush vset of Drupal Site configurations"
 drush -u 1 -y vset islandora_base_url "fedora:8080/fedora"
