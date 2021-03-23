@@ -58,7 +58,7 @@ drush -u 1 -y vset --format=json islandora_book_page_viewers '{"name":{"none":"n
 drush -u 1 -y vset --format=json islandora_large_image_viewers '{"name":{"none":"none","islandora_openseadragon":"islandora_openseadragon"},"default":"islandora_openseadragon"}'
 drush -u 1 -y vset --format=json islandora_newspaper_issue_viewers '{"name":{"none":"none","islandora_internet_archive_bookreader":"islandora_internet_archive_bookreader"},"default":"islandora_internet_archive_bookreader"}'
 drush -u 1 -y vset --format=json islandora_newspaper_page_viewers '{"name":{"none":"none","islandora_openseadragon":"islandora_openseadragon"},"default":"islandora_openseadragon"}'
-drush -u 1 -y vset --format=json islandora_pdf_viewers '{"name": {"none": "none","islandora_pdfjs": "islandora_pdfjs"},"default": "islandora_pdfjs"}'
+drush -u 1 -y vset --format=json islandora_pdf_viewers '{"name":{"none":"none","islandora_pdfjs":"islandora_pdfjs"},"default":"islandora_pdfjs"}'
 drush -u 1 -y vset islandora_openseadragon_iiif_identifier '[islandora_openseadragon:pid]~[islandora_openseadragon:dsid]~[islandora_openseadragon:token]'
 drush -u 1 -y vset islandora_openseadragon_iiif_token_header '0'
 drush -u 1 -y vset islandora_openseadragon_iiif_url 'iiif/2'
