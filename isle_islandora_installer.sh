@@ -29,7 +29,7 @@ cd /var/www/html/sites/all/modules || exit
 
 ## Site install
 echo "Installing Drupal Site"
-drush site-install -y --account-name=isle --account-pass=isle --account-mail=admin@ISLE.localdomain --site-name="ISLE.localdomain"
+drush site-install -y --account-name=isle --account-pass=isle --account-mail=admin@isle.localdomain --site-name="ISLE.localdomain"
 
 ## Drush vset of all settings
 echo "Drush vset of Drupal Site configurations"
